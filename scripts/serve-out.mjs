@@ -3,6 +3,7 @@
 import { createReadStream, statSync } from "node:fs";
 import { createServer } from "node:http";
 import { extname, join, normalize, resolve } from "node:path";
+import { pipeline } from "node:stream";
 import { createBrotliCompress, createGzip } from "node:zlib";
 
 const root = resolve("out");
@@ -24,7 +25,12 @@ const types = {
 };
 
 function resolveFile(urlPath) {
-  const decoded = decodeURIComponent(urlPath.split("?")[0] ?? "/");
+  let decoded;
+  try {
+    decoded = decodeURIComponent(urlPath.split("?")[0] ?? "/");
+  } catch {
+    return null; // URL mal formada: se responde 404 en lugar de caer.
+  }
   const candidate = normalize(join(root, decoded));
   // Nunca servir fuera de `out/`.
   if (!candidate.startsWith(root)) return null;
@@ -47,7 +53,7 @@ createServer((req, res) => {
   if (!file) {
     const notFound = resolveFile("/404.html");
     res.writeHead(404, { "content-type": types[".html"] });
-    if (notFound) createReadStream(notFound).pipe(res);
+    if (notFound) pipeline(createReadStream(notFound), res, () => {});
     else res.end("404");
     return;
   }
@@ -64,10 +70,11 @@ createServer((req, res) => {
       ? { "content-encoding": encoding, vary: "accept-encoding" }
       : {}),
   });
-  const stream = createReadStream(file);
-  if (encoding === "br") stream.pipe(createBrotliCompress()).pipe(res);
-  else if (encoding === "gzip") stream.pipe(createGzip()).pipe(res);
-  else stream.pipe(res);
+  const steps = [createReadStream(file)];
+  if (encoding === "br") steps.push(createBrotliCompress());
+  else if (encoding === "gzip") steps.push(createGzip());
+  // `pipeline` cierra todo si el navegador corta la descarga, sin tumbar el servidor.
+  pipeline(...steps, res, () => {});
 }).listen(port, () => {
   console.log(`Sirviendo out/ en http://localhost:${port}`);
 });
