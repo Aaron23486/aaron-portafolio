@@ -32,7 +32,7 @@ export function CopyEmail({ email, label, copiedLabel }: CopyEmailProps) {
     <button
       type="button"
       onClick={copy}
-      className="text-ink-secondary hover:text-mist-white inline-flex min-h-11 items-center gap-1.5 rounded-full px-2 text-xs transition-colors"
+      className="text-ink-secondary hover:text-mist-white inline-flex min-h-8 items-center gap-1.5 rounded-full px-2 text-xs transition-colors"
     >
       {copied ? (
         <Check aria-hidden="true" className="text-aurora-teal size-4" />

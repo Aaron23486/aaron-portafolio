@@ -67,7 +67,7 @@ export function ContactSection({
               </Button>
             </div>
             <dl className="grid gap-1 text-sm">
-              <div className="flex flex-wrap gap-x-2">
+              <div className="flex min-h-8 flex-wrap items-center gap-x-2">
                 <dt className="text-ink-muted">{contact.emailTerm}</dt>
                 <dd className="flex flex-wrap items-center gap-x-1">
                   <Link
@@ -84,11 +84,11 @@ export function ContactSection({
                   />
                 </dd>
               </div>
-              <div className="flex flex-wrap gap-x-2">
+              <div className="flex min-h-8 flex-wrap items-center gap-x-2">
                 <dt className="text-ink-muted">GitHub</dt>
                 <dd className="text-mist-white">@{githubUsername}</dd>
               </div>
-              <div className="flex flex-wrap gap-x-2">
+              <div className="flex min-h-8 flex-wrap items-center gap-x-2">
                 <dt className="text-ink-muted">{contact.locationTerm}</dt>
                 <dd className="text-mist-white">{location}</dd>
               </div>
