@@ -42,7 +42,7 @@ export default function EntryPage() {
             href={localePath(locale)}
             hrefLang={locale}
             lang={locale}
-            className="text-mist-white underline"
+            className="text-pearl-white underline"
           >
             {localeLabels[locale].name}
           </a>

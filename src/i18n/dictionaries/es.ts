@@ -8,7 +8,7 @@ const es = {
     description:
       "Portafolio de Aarón Gutiérrez Morales, desarrollador de software: aplicaciones empresariales reales con sus capturas, tecnologías y repositorios públicos en GitHub.",
     ogImageAlt:
-      "Aurora Digital — portafolio de Aarón Gutiérrez Morales, desarrollador de software",
+      "Portafolio de Aarón Gutiérrez Morales, desarrollador de software",
   },
   a11y: {
     skipToContent: "Saltar al contenido",

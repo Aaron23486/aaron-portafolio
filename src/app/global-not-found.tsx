@@ -4,7 +4,7 @@ import { fontVariables } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "404 — Aurora Digital",
+  title: "404 — Aarón Gutiérrez Morales",
   description: "Página no encontrada / Page not found",
 };
 
@@ -20,14 +20,14 @@ export default function GlobalNotFound() {
           <h1 className="font-display text-2xl font-semibold">
             Página no encontrada
           </h1>
-          <p lang="en" className="text-ink-secondary">
+          <p lang="en" className="text-sage-gray">
             Page not found
           </p>
           <div className="flex gap-3">
             <a
               href={localePath("es")}
               hrefLang="es"
-              className="bg-aurora text-midnight-navy rounded-full px-6 py-3 font-semibold"
+              className="bg-brand-gradient text-obsidian rounded-full px-6 py-3 font-semibold"
             >
               Ir al inicio
             </a>

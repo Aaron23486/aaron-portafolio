@@ -43,7 +43,7 @@ export function LanguageSwitcher({
     <nav
       aria-label={label}
       className={cn(
-        "border-border-subtle bg-midnight-navy/60 flex items-center rounded-full border p-1",
+        "border-border-subtle bg-obsidian/60 flex items-center rounded-full border p-1",
         className,
       )}
     >
@@ -66,8 +66,8 @@ export function LanguageSwitcher({
                 className={cn(
                   "grid min-h-9 min-w-11 place-items-center rounded-full px-3 text-xs font-bold tracking-widest transition-colors duration-300",
                   isCurrent
-                    ? "bg-aurora text-midnight-navy"
-                    : "text-ink-secondary hover:bg-surface-elevated hover:text-mist-white",
+                    ? "bg-brand-gradient text-obsidian"
+                    : "text-sage-gray hover:bg-surface-elevated hover:text-pearl-white",
                 )}
               >
                 {short}

@@ -13,7 +13,7 @@ export function generateStaticParams() {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#08111f",
+  themeColor: "#06120f",
   colorScheme: "dark",
 };
 
@@ -34,7 +34,7 @@ export async function generateMetadata({
     metadataBase: new URL(siteConfig.url),
     title: meta.title,
     description: meta.description,
-    applicationName: "Aurora Digital",
+    applicationName: siteConfig.name,
     authors: [{ name: siteConfig.name, url: siteConfig.githubUrl }],
     creator: siteConfig.name,
     alternates: {
@@ -47,7 +47,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "website",
-      siteName: "Aurora Digital",
+      siteName: siteConfig.name,
       title: meta.title,
       description: meta.description,
       url: localePath(locale),

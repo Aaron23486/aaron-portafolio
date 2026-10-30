@@ -1,8 +1,8 @@
 import { DecorativeGlow } from "@/components/atoms/DecorativeGlow";
 import { cn } from "@/lib/cn";
 
-/** Cortinas de aurora: bandas de gradiente cónico que derivan lentamente. Solo decoración. */
-export function AuroraBackdrop({
+/** Luz ambiental esmeralda: bandas de gradiente cónico que derivan lentamente. Solo decoración. */
+export function AmbientBackdrop({
   className,
   intensity = "full",
 }: {
@@ -19,29 +19,29 @@ export function AuroraBackdrop({
     >
       <div
         className={cn(
-          "animate-aurora-drift absolute -top-1/3 -left-1/4 h-[85%] w-[90%] rounded-[50%] bg-[conic-gradient(from_200deg_at_60%_40%,transparent_0deg,rgb(79_209_255/0.35)_60deg,rgb(139_108_255/0.4)_120deg,transparent_200deg)] blur-3xl max-md:blur-2xl",
+          "animate-glow-drift absolute -top-1/3 -left-1/4 h-[85%] w-[90%] rounded-[50%] bg-[conic-gradient(from_200deg_at_60%_40%,transparent_0deg,rgb(50_230_161/0.35)_60deg,rgb(31_185_128/0.4)_120deg,transparent_200deg)] blur-3xl max-md:blur-2xl",
           intensity === "soft" ? "opacity-40" : "opacity-80",
         )}
       />
       <div
         className={cn(
-          "animate-aurora-drift-slow absolute -top-1/4 -right-1/4 h-[80%] w-[75%] rounded-[50%] bg-[conic-gradient(from_20deg_at_40%_50%,transparent_0deg,rgb(214_107_255/0.32)_70deg,rgb(139_108_255/0.3)_140deg,transparent_220deg)] blur-3xl max-md:hidden",
+          "animate-glow-drift-slow absolute -top-1/4 -right-1/4 h-[80%] w-[75%] rounded-[50%] bg-[conic-gradient(from_20deg_at_40%_50%,transparent_0deg,rgb(124_255_198/0.32)_70deg,rgb(31_185_128/0.3)_140deg,transparent_220deg)] blur-3xl max-md:hidden",
           intensity === "soft" ? "opacity-30" : "opacity-70",
         )}
       />
       <DecorativeGlow
-        color="cyan"
+        color="emerald"
         className="top-[18%] left-[8%] size-72 opacity-50"
       />
       <DecorativeGlow
-        color="magenta"
+        color="mint"
         className="right-[6%] bottom-[12%] size-96 opacity-40 max-md:hidden"
       />
     </div>
   );
 }
 
-/** Siluetas de montañas en el horizonte, con luz de aurora en la cresta. */
+/** Siluetas de montañas en el horizonte, con luz esmeralda en la cresta. */
 export function Mountains({
   id,
   className,
@@ -62,18 +62,18 @@ export function Mountains({
     >
       <defs>
         <linearGradient id={`${id}-light`} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#4fd1ff" stopOpacity="0.55" />
-          <stop offset="0.5" stopColor="#8b6cff" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#d66bff" stopOpacity="0.45" />
+          <stop offset="0" stopColor="#1fb980" stopOpacity="0.55" />
+          <stop offset="0.5" stopColor="#32e6a1" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#7cffc6" stopOpacity="0.45" />
         </linearGradient>
         <linearGradient id={`${id}-fill`} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#0f1f33" />
-          <stop offset="1" stopColor="#08111f" />
+          <stop offset="0" stopColor="#102a23" />
+          <stop offset="1" stopColor="#06120f" />
         </linearGradient>
       </defs>
       <path
         d="M0 170 L120 120 L220 150 L340 80 L470 140 L560 110 L690 160 L820 90 L940 140 L1060 70 L1190 130 L1300 100 L1440 140 L1440 260 L0 260 Z"
-        fill="#0b1729"
+        fill="#0b201a"
         opacity="0.8"
       />
       <path
@@ -114,10 +114,10 @@ export function LightCurve({
     >
       <defs>
         <linearGradient id={`${id}-curve`} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#4fd1ff" stopOpacity="0" />
-          <stop offset="0.35" stopColor="#4fd1ff" stopOpacity="0.7" />
-          <stop offset="0.7" stopColor="#8b6cff" stopOpacity="0.7" />
-          <stop offset="1" stopColor="#d66bff" stopOpacity="0" />
+          <stop offset="0" stopColor="#1fb980" stopOpacity="0" />
+          <stop offset="0.35" stopColor="#1fb980" stopOpacity="0.7" />
+          <stop offset="0.7" stopColor="#32e6a1" stopOpacity="0.7" />
+          <stop offset="1" stopColor="#7cffc6" stopOpacity="0" />
         </linearGradient>
       </defs>
       <path
@@ -129,7 +129,7 @@ export function LightCurve({
       <path
         d="M-20 260 C 320 120, 620 300, 900 170 S 1300 40, 1460 90"
         fill="none"
-        stroke="#eaf4ff"
+        stroke="#f1faf6"
         strokeOpacity="0.55"
         strokeWidth="2"
         strokeLinecap="round"
@@ -164,14 +164,14 @@ export function WaveDivider({
     >
       <defs>
         <linearGradient id={`${id}-wave`} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#4fd1ff" stopOpacity="0.5" />
-          <stop offset="0.5" stopColor="#8b6cff" stopOpacity="0.6" />
-          <stop offset="1" stopColor="#d66bff" stopOpacity="0.5" />
+          <stop offset="0" stopColor="#1fb980" stopOpacity="0.5" />
+          <stop offset="0.5" stopColor="#32e6a1" stopOpacity="0.6" />
+          <stop offset="1" stopColor="#7cffc6" stopOpacity="0.5" />
         </linearGradient>
       </defs>
       <path
         d="M0 70 C 240 10, 480 120, 720 64 S 1200 0, 1440 50 L1440 120 L0 120 Z"
-        fill="#0b1729"
+        fill="#0b201a"
       />
       <path
         d="M0 70 C 240 10, 480 120, 720 64 S 1200 0, 1440 50"

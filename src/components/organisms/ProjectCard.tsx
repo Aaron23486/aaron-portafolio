@@ -15,10 +15,10 @@ import { screenshotSrc, screenshotSrcSet } from "@/lib/images";
 import type { AccentToken, Project, ProjectIcon } from "@/types/content";
 
 const accents: Record<AccentToken, string> = {
-  cyan: "var(--color-aurora-cyan)",
-  violet: "var(--color-electric-violet)",
-  magenta: "var(--color-soft-magenta)",
-  teal: "var(--color-aurora-teal)",
+  emerald: "var(--color-neo-emerald)",
+  jade: "var(--color-jade)",
+  mint: "var(--color-mint-glow)",
+  seafoam: "var(--color-seafoam)",
 };
 
 const icons: Record<ProjectIcon, LucideIcon> = {
@@ -55,7 +55,7 @@ export function ProjectCard({
       aria-labelledby={titleId}
       data-reveal
       style={style}
-      className="group/card border-border-subtle bg-deep-space/70 shadow-card relative h-full rounded-(--radius-card) border transition-[transform,border-color,box-shadow] duration-500 ease-(--ease-aurora) hover:border-(--accent)/55 hover:shadow-[0_30px_80px_-30px_var(--accent)] motion-safe:hover:-translate-y-1.5"
+      className="group/card border-border-subtle bg-emerald-surface/70 shadow-card relative h-full rounded-(--radius-card) border transition-[transform,border-color,box-shadow] duration-500 ease-(--ease-smooth) hover:border-(--accent)/55 hover:shadow-[0_30px_80px_-30px_var(--accent)] motion-safe:hover:-translate-y-1.5"
     >
       <Spotlight className="flex h-full flex-col gap-5 rounded-(--radius-card) p-5 sm:p-6">
         <header className="relative flex items-center gap-4">
@@ -68,17 +68,15 @@ export function ProjectCard({
           <div className="min-w-0">
             <h3
               id={titleId}
-              className="font-display text-mist-white text-xl font-semibold tracking-wide"
+              className="font-display text-pearl-white text-xl font-semibold tracking-wide"
             >
               {project.name}
             </h3>
-            <p className="text-ink-secondary text-sm">
-              {project.subtitle[locale]}
-            </p>
+            <p className="text-sage-gray text-sm">{project.subtitle[locale]}</p>
           </div>
         </header>
 
-        <div className="border-border-subtle bg-midnight-navy relative overflow-hidden rounded-2xl border">
+        <div className="border-border-subtle bg-obsidian relative overflow-hidden rounded-2xl border">
           {/* eslint-disable-next-line @next/next/no-img-element -- exportación estática con WebP pregenerado y srcset propio */}
           <img
             src={screenshotSrc(project.cover)}
@@ -89,15 +87,15 @@ export function ProjectCard({
             alt={project.cover.alt[locale]}
             loading="lazy"
             decoding="async"
-            className="aspect-video w-full object-cover object-top transition-transform duration-700 ease-(--ease-aurora) motion-safe:group-hover/card:scale-[1.04]"
+            className="aspect-video w-full object-cover object-top transition-transform duration-700 ease-(--ease-smooth) motion-safe:group-hover/card:scale-[1.04]"
           />
           <div
             aria-hidden="true"
-            className="from-midnight-navy/50 pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent to-transparent"
+            className="from-obsidian/50 pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent to-transparent"
           />
         </div>
 
-        <p className="text-ink-secondary relative text-[0.95rem] leading-relaxed text-pretty">
+        <p className="text-sage-gray relative text-[0.95rem] leading-relaxed text-pretty">
           {project.summary[locale]}
         </p>
 

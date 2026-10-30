@@ -5,8 +5,7 @@ const en: Dictionary = {
     title: "Aarón Gutiérrez Morales — Software Developer",
     description:
       "Portfolio of Aarón Gutiérrez Morales, software developer: real business applications with their screenshots, technologies and public GitHub repositories.",
-    ogImageAlt:
-      "Aurora Digital — portfolio of Aarón Gutiérrez Morales, software developer",
+    ogImageAlt: "Portfolio of Aarón Gutiérrez Morales, software developer",
   },
   a11y: {
     skipToContent: "Skip to content",

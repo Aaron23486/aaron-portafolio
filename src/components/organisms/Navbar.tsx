@@ -83,7 +83,7 @@ export function Navbar({
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
         scrolled || open
-          ? "border-border-subtle bg-midnight-navy/75 border-b backdrop-blur-xl"
+          ? "border-border-subtle bg-obsidian/75 border-b backdrop-blur-xl"
           : "border-b border-transparent",
       )}
     >
@@ -122,7 +122,7 @@ export function Navbar({
         <button
           ref={toggleRef}
           type="button"
-          className="border-border-subtle bg-deep-space/70 text-mist-white grid size-11 place-items-center rounded-xl border lg:hidden"
+          className="border-border-subtle bg-emerald-surface/70 text-pearl-white grid size-11 place-items-center rounded-xl border lg:hidden"
           aria-expanded={open}
           aria-controls={menuId}
           aria-label={open ? a11y.closeMenu : a11y.openMenu}
@@ -146,7 +146,7 @@ export function Navbar({
             animate={{ opacity: 1, y: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="border-border-subtle bg-midnight-navy/95 border-t px-4 pt-4 pb-6 backdrop-blur-xl lg:hidden"
+            className="border-border-subtle bg-obsidian/95 border-t px-4 pt-4 pb-6 backdrop-blur-xl lg:hidden"
           >
             <nav aria-label={a11y.mainNavigation}>
               <ul className="flex flex-col gap-1">

@@ -9,7 +9,7 @@ import type { CSSProperties } from "react";
 import { SectionHeading } from "@/components/molecules/SectionHeading";
 import type { Dictionary } from "@/i18n";
 import { DecorativeGlow } from "@/components/atoms/DecorativeGlow";
-import { WaveDivider } from "./AuroraBackdrop";
+import { WaveDivider } from "./AmbientBackdrop";
 
 const focusIcons: readonly LucideIcon[] = [
   Building2,
@@ -26,14 +26,14 @@ export function AboutSection({ about }: { about: Dictionary["about"] }) {
       className="relative isolate"
     >
       <WaveDivider id="about-wave-top" />
-      <div className="relative overflow-hidden bg-[#0b1729] py-20 sm:py-28">
+      <div className="bg-deep-forest relative overflow-hidden py-20 sm:py-28">
         <DecorativeGlow
-          color="violet"
+          color="jade"
           drift
           className="-top-32 right-[-10%] size-[34rem] opacity-60"
         />
         <DecorativeGlow
-          color="cyan"
+          color="emerald"
           className="bottom-[-20%] left-[-10%] size-[28rem] opacity-40"
         />
 
@@ -46,7 +46,7 @@ export function AboutSection({ about }: { about: Dictionary["about"] }) {
               highlight={about.titleHighlight}
             />
             <div
-              className="text-ink-secondary flex flex-col gap-5 text-base leading-relaxed text-pretty sm:text-lg"
+              className="text-sage-gray flex flex-col gap-5 text-base leading-relaxed text-pretty sm:text-lg"
               data-reveal
             >
               {about.paragraphs.map((paragraph) => (
@@ -59,7 +59,7 @@ export function AboutSection({ about }: { about: Dictionary["about"] }) {
                   key={fact.label}
                   className="glass-panel flex flex-col-reverse gap-1 rounded-2xl p-5"
                 >
-                  <dt className="text-ink-secondary text-sm leading-snug">
+                  <dt className="text-sage-gray text-sm leading-snug">
                     {fact.label}
                   </dt>
                   <dd className="text-gradient font-display text-3xl font-semibold">
@@ -72,7 +72,7 @@ export function AboutSection({ about }: { about: Dictionary["about"] }) {
 
           <div className="flex flex-col gap-5 lg:pt-24">
             <h3
-              className="font-display text-mist-white text-lg font-semibold"
+              className="font-display text-pearl-white text-lg font-semibold"
               data-reveal
             >
               {about.focusTitle}
@@ -87,16 +87,16 @@ export function AboutSection({ about }: { about: Dictionary["about"] }) {
                     style={
                       { "--reveal-delay": `${index * 90}ms` } as CSSProperties
                     }
-                    className="group/focus glass-panel hover:border-aurora-cyan/40 rounded-2xl p-5 transition-[border-color,transform] duration-500 motion-safe:hover:-translate-y-1"
+                    className="group/focus glass-panel hover:border-neo-emerald/40 rounded-2xl p-5 transition-[border-color,transform] duration-500 motion-safe:hover:-translate-y-1"
                   >
                     <Icon
                       aria-hidden="true"
-                      className="text-aurora-cyan group-hover/focus:text-soft-magenta mb-4 size-6 transition-colors duration-500"
+                      className="text-neo-emerald group-hover/focus:text-mint-glow mb-4 size-6 transition-colors duration-500"
                     />
-                    <p className="font-display text-mist-white font-semibold">
+                    <p className="font-display text-pearl-white font-semibold">
                       {item.title}
                     </p>
-                    <p className="text-ink-secondary mt-1.5 text-sm leading-relaxed">
+                    <p className="text-sage-gray mt-1.5 text-sm leading-relaxed">
                       {item.text}
                     </p>
                   </li>

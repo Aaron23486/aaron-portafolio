@@ -40,7 +40,7 @@ export function PortfolioTemplate({
     <MotionProvider>
       <a
         href="#main"
-        className="bg-aurora text-midnight-navy fixed top-3 left-3 z-[60] -translate-y-24 rounded-full px-5 py-3 font-semibold transition-transform focus-visible:translate-y-0"
+        className="bg-brand-gradient text-obsidian fixed top-3 left-3 z-[60] -translate-y-24 rounded-full px-5 py-3 font-semibold transition-transform focus-visible:translate-y-0"
       >
         {t.a11y.skipToContent}
       </a>

@@ -1,13 +1,12 @@
 import { cn } from "@/lib/cn";
 
-type GlowColor = "cyan" | "violet" | "magenta";
+type GlowColor = "emerald" | "jade" | "mint";
 
 const colors: Record<GlowColor, string> = {
-  cyan: "bg-[radial-gradient(closest-side,rgb(79_209_255/0.45),transparent)]",
-  violet:
-    "bg-[radial-gradient(closest-side,rgb(139_108_255/0.45),transparent)]",
-  magenta:
-    "bg-[radial-gradient(closest-side,rgb(214_107_255/0.38),transparent)]",
+  emerald:
+    "bg-[radial-gradient(closest-side,rgb(50_230_161/0.45),transparent)]",
+  jade: "bg-[radial-gradient(closest-side,rgb(31_185_128/0.45),transparent)]",
+  mint: "bg-[radial-gradient(closest-side,rgb(124_255_198/0.38),transparent)]",
 };
 
 export interface DecorativeGlowProps {
@@ -19,7 +18,7 @@ export interface DecorativeGlowProps {
 
 /** Halo de luz decorativo. Gradiente radial sin `filter: blur` para no penalizar el rendimiento. */
 export function DecorativeGlow({
-  color = "cyan",
+  color = "emerald",
   className,
   drift = false,
 }: DecorativeGlowProps) {
@@ -29,7 +28,7 @@ export function DecorativeGlow({
       className={cn(
         "pointer-events-none absolute rounded-full",
         colors[color],
-        drift && "animate-aurora-drift",
+        drift && "animate-glow-drift",
         className,
       )}
     />

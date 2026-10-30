@@ -90,7 +90,7 @@ export function HeroVisual({ locale, shots, tags, label }: HeroVisualProps) {
             {/* Oscurece la capa del fondo para dar profundidad sin bajar el contraste del texto con `opacity`. */}
             <div
               aria-hidden="true"
-              className="bg-midnight-navy/30 pointer-events-none absolute inset-0 rounded-2xl"
+              className="bg-obsidian/30 pointer-events-none absolute inset-0 rounded-2xl"
             />
           </div>
         </m.div>
@@ -102,7 +102,7 @@ export function HeroVisual({ locale, shots, tags, label }: HeroVisualProps) {
           className="absolute top-[14%] right-0 w-[84%] sm:top-[22%] sm:w-[78%]"
         >
           <div className="animate-float">
-            <div className="aurora-border [transform:rotateY(-10deg)_rotateX(5deg)] rounded-2xl shadow-[0_40px_120px_-30px_rgb(139_108_255/0.55)]">
+            <div className="glow-border [transform:rotateY(-10deg)_rotateX(5deg)] rounded-2xl shadow-[0_40px_120px_-30px_rgb(31_185_128/0.55)]">
               <BrowserFrame
                 shot={mid.shot}
                 locale={locale}
@@ -126,7 +126,7 @@ export function HeroVisual({ locale, shots, tags, label }: HeroVisualProps) {
               locale={locale}
               label={front.label}
               sizes="(min-width: 1024px) 330px, 50vw"
-              className="shadow-[0_30px_80px_-20px_rgb(79_209_255/0.45)]"
+              className="shadow-[0_30px_80px_-20px_rgb(50_230_161/0.45)]"
             />
           </div>
         </m.div>
@@ -143,9 +143,9 @@ export function HeroVisual({ locale, shots, tags, label }: HeroVisualProps) {
             style={{
               animationDelay: `${index * 0.8}s`,
             }}
-            className="glass-panel animate-float text-ink-secondary rounded-lg px-3 py-1.5 font-mono text-[0.7rem] tracking-wide"
+            className="glass-panel animate-float text-sage-gray rounded-lg px-3 py-1.5 font-mono text-[0.7rem] tracking-wide"
           >
-            <span className="text-aurora-cyan mr-1.5">›</span>
+            <span className="text-neo-emerald mr-1.5">›</span>
             {tag}
           </li>
         ))}

@@ -5,7 +5,7 @@ import { Eyebrow, GradientHeading, Lead } from "@/components/atoms/Typography";
 import { CvDownload } from "@/components/molecules/CvDownload";
 import type { Dictionary } from "@/i18n";
 import type { CvFile } from "@/types/content";
-import { AuroraBackdrop, LightCurve, Mountains } from "./AuroraBackdrop";
+import { AmbientBackdrop, LightCurve, Mountains } from "./AmbientBackdrop";
 
 export interface ContactSectionProps {
   email: string;
@@ -32,8 +32,8 @@ export function ContactSection({
       aria-labelledby="contact-title"
       className="relative px-4 pt-8 pb-24 sm:px-6 lg:px-8"
     >
-      <div className="border-border-subtle bg-deep-space/60 relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2rem] border px-6 pt-16 pb-48 sm:px-12 sm:pt-20 sm:pb-56 lg:px-16">
-        <AuroraBackdrop intensity="soft" />
+      <div className="border-border-subtle bg-emerald-surface/60 relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2rem] border px-6 pt-16 pb-48 sm:px-12 sm:pt-20 sm:pb-56 lg:px-16">
+        <AmbientBackdrop intensity="soft" />
         <LightCurve id="contact-curve" flip className="top-[42%] opacity-60" />
         <Mountains id="contact-mountains" />
 
@@ -67,7 +67,7 @@ export function ContactSection({
                 <dd>
                   <a
                     href={`mailto:${email}`}
-                    className="text-mist-white break-all underline-offset-4 hover:underline"
+                    className="text-pearl-white break-all underline-offset-4 hover:underline"
                   >
                     {email}
                   </a>
@@ -75,11 +75,11 @@ export function ContactSection({
               </div>
               <div className="flex flex-wrap gap-x-2">
                 <dt className="text-ink-muted">GitHub</dt>
-                <dd className="text-mist-white">@{githubUsername}</dd>
+                <dd className="text-pearl-white">@{githubUsername}</dd>
               </div>
               <div className="flex flex-wrap gap-x-2">
                 <dt className="text-ink-muted">{contact.locationTerm}</dt>
-                <dd className="text-mist-white">{location}</dd>
+                <dd className="text-pearl-white">{location}</dd>
               </div>
             </dl>
           </div>
@@ -89,7 +89,7 @@ export function ContactSection({
               className="glass-panel flex flex-col gap-4 rounded-2xl p-6 sm:p-8"
               data-reveal
             >
-              <h3 className="font-display text-mist-white text-lg font-semibold">
+              <h3 className="font-display text-pearl-white text-lg font-semibold">
                 {contact.cvTitle}
               </h3>
               <CvDownload
