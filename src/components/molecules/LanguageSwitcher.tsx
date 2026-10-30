@@ -10,6 +10,7 @@ import {
   localeStorageKey,
 } from "@/i18n/config";
 import { cn } from "@/lib/cn";
+import { currentSectionId } from "@/lib/sections";
 
 export interface LanguageSwitcherProps {
   current: Locale;
@@ -36,7 +37,8 @@ export function LanguageSwitcher({
     } catch {
       // Sin almacenamiento disponible (modo privado): el cambio funciona igual.
     }
-    event.currentTarget.href = localePath(locale, window.location.hash);
+    // Conserva la sección visible en este momento, llegues a ella con el menú o con el scroll.
+    event.currentTarget.href = localePath(locale, `#${currentSectionId()}`);
   }
 
   return (

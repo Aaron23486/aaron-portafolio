@@ -291,3 +291,23 @@ test("SEO: metadatos, Open Graph, hreflang, sitemap y robots", async ({
   expect(await (await request.get("/sitemap.xml")).text()).toContain("/es/");
   expect(await (await request.get("/robots.txt")).text()).toContain("Sitemap:");
 });
+
+test("al cambiar de idioma se queda en la sección visible, aunque se haya llegado con scroll", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "El flujo de scroll se prueba en escritorio");
+  // Se entra a Tecnologías por el menú (el ancla queda en la URL)…
+  await page.goto("/es/#technologies");
+  // …y se vuelve con el scroll hasta Inicio y luego hasta Sobre mí.
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await page.getByRole("link", { name: /EN.*English/ }).click();
+  await expect(page).toHaveURL(/\/en\/#home$/);
+  await page.waitForLoadState("networkidle");
+
+  await page.evaluate(() =>
+    document.getElementById("about")?.scrollIntoView({ behavior: "instant" }),
+  );
+  await page.getByRole("link", { name: /ES.*Español/ }).click();
+  await expect(page).toHaveURL(/\/es\/#about$/);
+});

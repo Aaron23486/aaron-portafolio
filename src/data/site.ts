@@ -12,8 +12,15 @@ export const siteConfig = {
   githubUrl: "https://github.com/Aaron23486",
   email: "aaron20770@gmail.com",
   location: "Alajuela, Costa Rica",
-  /** URL pública del sitio; se define en Vercel con `SITE_URL` al publicar. */
-  url: process.env.SITE_URL ?? "http://localhost:4173",
+  /**
+   * URL pública del sitio. Prioridad: `SITE_URL` (dominio propio), luego el dominio de
+   * producción que Vercel expone en el build y, en local, el servidor de vista previa.
+   */
+  url:
+    process.env.SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:4173"),
 } as const;
 
 export const cvFiles: readonly CvFile[] = [

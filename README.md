@@ -133,17 +133,17 @@ The PDFs are listed in `.gitignore` until a public version is approved, so they 
 
 ## Deploying to Vercel (free plan)
 
-1. Push this repository to GitHub (suggested name: `aurora-portfolio`).
+1. Push this repository to GitHub (`aaron-portafolio`).
 2. In Vercel, **Add New → Project**, import the repository and keep the detected **Next.js** preset. No build settings need to change: the static export goes to `out/`.
-3. Under **Environment Variables**, set `SITE_URL` to the final address, for example `https://aurora-portfolio.vercel.app`. It is used for canonical URLs, Open Graph, the sitemap and `robots.txt`.
-4. Deploy. The project name defines the free `*.vercel.app` subdomain.
+3. No environment variables are required: canonical URLs, Open Graph, the sitemap and `robots.txt` use the production domain Vercel exposes at build time (`VERCEL_PROJECT_PRODUCTION_URL`). Set `SITE_URL` only if you add a custom domain later.
+4. Deploy. The project name defines the free `*.vercel.app` subdomain (for example `aaron-portafolio.vercel.app`).
 5. Every push to `main` deploys again; pull requests get preview URLs.
 
 `vercel.json` adds the security headers: a Content Security Policy, `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, `Cross-Origin-Opener-Policy`, `Permissions-Policy` and HSTS. It also sets long-lived caching for hashed assets. The policy allows inline scripts because a static export cannot use per-request nonces; there are no third-party scripts.
 
 ## Security
 
-- No secrets, tokens or environment variables reach the client; `SITE_URL` is public by design.
+- No secrets, tokens or environment variables reach the client; the site URL is public by design.
 - External links open in a new tab with `rel="noopener noreferrer"` and announce it to screen readers.
 - Repository URLs are validated against the owner's GitHub profile.
 - Dependencies are kept to a minimum; `npm audit` reports no known vulnerabilities at the time of writing.

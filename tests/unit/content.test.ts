@@ -123,10 +123,9 @@ describe("contacto y datos sensibles", () => {
 
   it("la ubicación pública es solo provincia y país", () => {
     expect(siteConfig.location).toBe("Alajuela, Costa Rica");
-    const content = JSON.stringify({ siteConfig, es, en });
   });
 
-  it("no hay LinkedIn, teléfonos ni empresas reales en el código fuente", () => {
+  it("no hay LinkedIn ni teléfonos en el código fuente", () => {
     const files: string[] = [];
     const walk = (dir: string) => {
       for (const entry of readdirSync(dir)) {
