@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Base provisional de U0; los tokens Aurora Digital llegan en U1. */
+body {
+  background: #08111f;
+  color: #eaf4ff;
+}
