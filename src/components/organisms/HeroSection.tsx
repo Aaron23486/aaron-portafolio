@@ -40,7 +40,7 @@ export function HeroSection({
           <div className="hero-enter" style={enterDelay(0)}>
             <Eyebrow>{hero.eyebrow}</Eyebrow>
           </div>
-          <div className="hero-enter" style={enterDelay(120)}>
+          <div className="hero-enter-soft">
             <GradientHeading
               as="h1"
               id="home-title"
@@ -48,7 +48,7 @@ export function HeroSection({
               highlight={hero.titleHighlight}
             />
           </div>
-          <div className="hero-enter max-w-xl" style={enterDelay(240)}>
+          <div className="hero-enter-soft max-w-xl">
             <Lead>{hero.intro}</Lead>
           </div>
           <div

@@ -8,6 +8,7 @@ import { TechnologySection } from "@/components/organisms/TechnologySection";
 import type { Dictionary } from "@/i18n";
 import type { Locale } from "@/i18n/config";
 import type { CvFile, Project, TechnologyGroup } from "@/types/content";
+import { MotionProvider } from "./MotionProvider";
 import { RevealObserver } from "./RevealObserver";
 
 export interface PortfolioContent {
@@ -35,7 +36,7 @@ export function PortfolioTemplate({
   cvFiles,
 }: PortfolioContent) {
   return (
-    <>
+    <MotionProvider>
       <a
         href="#main"
         className="bg-aurora text-midnight-navy fixed top-3 left-3 z-[60] -translate-y-24 rounded-full px-5 py-3 font-semibold transition-transform focus-visible:translate-y-0"
@@ -86,6 +87,6 @@ export function PortfolioTemplate({
         githubLabel={t.nav.github}
       />
       <RevealObserver />
-    </>
+    </MotionProvider>
   );
 }

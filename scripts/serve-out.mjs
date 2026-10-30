@@ -3,6 +3,7 @@
 import { createReadStream, statSync } from "node:fs";
 import { createServer } from "node:http";
 import { extname, join, normalize, resolve } from "node:path";
+import { createBrotliCompress, createGzip } from "node:zlib";
 
 const root = resolve("out");
 const port = Number(process.env.PORT ?? 4173);
@@ -50,10 +51,23 @@ createServer((req, res) => {
     else res.end("404");
     return;
   }
+  const type = types[extname(file)] ?? "application/octet-stream";
+  // Comprime el texto como lo hace Vercel, para que las mediciones locales sean representativas.
+  const accepts = String(req.headers["accept-encoding"] ?? "");
+  const compressible = /^(text|application\/(json|xml)|image\/svg)/.test(type);
+  let encoding = null;
+  if (compressible && accepts.includes("br")) encoding = "br";
+  else if (compressible && accepts.includes("gzip")) encoding = "gzip";
   res.writeHead(200, {
-    "content-type": types[extname(file)] ?? "application/octet-stream",
+    "content-type": type,
+    ...(encoding
+      ? { "content-encoding": encoding, vary: "accept-encoding" }
+      : {}),
   });
-  createReadStream(file).pipe(res);
+  const stream = createReadStream(file);
+  if (encoding === "br") stream.pipe(createBrotliCompress()).pipe(res);
+  else if (encoding === "gzip") stream.pipe(createGzip()).pipe(res);
+  else stream.pipe(res);
 }).listen(port, () => {
   console.log(`Sirviendo out/ en http://localhost:${port}`);
 });

@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { BrandMark } from "@/components/atoms/BrandMark";
 import { Button } from "@/components/atoms/Button";
@@ -138,7 +138,7 @@ export function Navbar({
 
       <AnimatePresence>
         {open ? (
-          <motion.div
+          <m.div
             ref={menuRef}
             id={menuId}
             key="mobile-menu"
@@ -174,7 +174,7 @@ export function Navbar({
                 className="px-3"
               />
             </div>
-          </motion.div>
+          </m.div>
         ) : null}
       </AnimatePresence>
     </header>

@@ -78,6 +78,16 @@
   }
 }
 
+/* Solo desplazamiento: el titular (LCP) se pinta desde el primer cuadro. */
+@keyframes rise-in-soft {
+  from {
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
 @keyframes rise-in {
   from {
     opacity: 0;
@@ -180,8 +190,12 @@
 
 /* Entrada del Hero: CSS puro, visible aunque no cargue JavaScript. */
 .hero-enter {
-  animation: rise-in 0.9s var(--ease-aurora) both;
+  animation: rise-in 0.7s var(--ease-aurora) both;
   animation-delay: var(--enter-delay, 0ms);
+}
+
+.hero-enter-soft {
+  animation: rise-in-soft 0.7s var(--ease-aurora) both;
 }
 
 /* ==========================================================================

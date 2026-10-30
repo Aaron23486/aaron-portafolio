@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  motion,
+  m,
   useMotionValue,
   useReducedMotion,
   useSpring,
@@ -76,7 +76,7 @@ export function HeroVisual({ locale, shots, tags, label }: HeroVisualProps) {
       className="relative mx-auto aspect-[5/4] w-full max-w-[640px] [perspective:1400px] lg:aspect-[6/5]"
     >
       {back ? (
-        <motion.div
+        <m.div
           style={{ x: backX, y: backY }}
           className="absolute top-[9%] left-0 w-[64%] max-sm:hidden"
         >
@@ -93,11 +93,11 @@ export function HeroVisual({ locale, shots, tags, label }: HeroVisualProps) {
               className="bg-midnight-navy/30 pointer-events-none absolute inset-0 rounded-2xl"
             />
           </div>
-        </motion.div>
+        </m.div>
       ) : null}
 
       {mid ? (
-        <motion.div
+        <m.div
           style={{ x: midX, y: midY, rotateY: tilt }}
           className="absolute top-[14%] right-0 w-[84%] sm:top-[22%] sm:w-[78%]"
         >
@@ -112,11 +112,11 @@ export function HeroVisual({ locale, shots, tags, label }: HeroVisualProps) {
               />
             </div>
           </div>
-        </motion.div>
+        </m.div>
       ) : null}
 
       {front ? (
-        <motion.div
+        <m.div
           style={{ x: frontX, y: frontY }}
           className="absolute bottom-[2%] left-[6%] w-[52%] sm:bottom-[4%]"
         >
@@ -129,7 +129,7 @@ export function HeroVisual({ locale, shots, tags, label }: HeroVisualProps) {
               className="shadow-[0_30px_80px_-20px_rgb(79_209_255/0.45)]"
             />
           </div>
-        </motion.div>
+        </m.div>
       ) : null}
 
       {/* Paneles de cristal decorativos con las etapas del trabajo. */}
