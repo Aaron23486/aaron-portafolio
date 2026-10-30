@@ -61,6 +61,7 @@ const en: Dictionary = {
     paragraphs: [
       "I'm a software developer and a Computer Systems Engineering student. I have over 3 years of hands-on experience building business applications and automations that turn manual processes into digital, traceable and measurable operations.",
       "I combine functional analysis, development, data management and operational knowledge: I gather requirements, model processes, define business rules and turn them into tested, documented applications.",
+      "I build AI into the way I work: I specify with SDD, validate with TDD and orchestrate specialized agents to explore, implement and review. I also automate processes with n8n and connect AI models to tools and data through MCP.",
       "I'm especially interested in cybersecurity and good practices: access control, server-side validation and databases that enforce their own rules.",
     ],
     facts: [
@@ -82,6 +83,14 @@ const en: Dictionary = {
         text: "Digital workflows that replace manual controls.",
       },
       {
+        title: "Applied AI and agents",
+        text: "Agents, MCP and n8n workflows connected to real processes.",
+      },
+      {
+        title: "Specify and test",
+        text: "SDD to define before building; TDD to protect what is built.",
+      },
+      {
         title: "Data and traceability",
         text: "Histories, audit trails and indicators for better decisions.",
       },
@@ -101,8 +110,9 @@ const en: Dictionary = {
       frontend: "Frontend",
       backend: "Backend",
       data: "Databases and BI",
-      tools: "Tools",
-      practices: "Architecture and good practices",
+      ai: "AI and automation",
+      tools: "Infrastructure and tools",
+      practices: "Security and methods",
     },
   },
   contact: {

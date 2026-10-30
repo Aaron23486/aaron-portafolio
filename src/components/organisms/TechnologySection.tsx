@@ -3,6 +3,7 @@ import {
   Layers,
   MonitorSmartphone,
   Server,
+  Sparkles,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -17,6 +18,7 @@ const groupIcons: Record<TechnologyGroupId, LucideIcon> = {
   frontend: MonitorSmartphone,
   backend: Server,
   data: Database,
+  ai: Sparkles,
   tools: Wrench,
   practices: Layers,
 };
@@ -47,7 +49,7 @@ export function TechnologySection({
           description={labels.description}
           align="center"
         />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
+        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {groups.map((group, index) => {
             const Icon = groupIcons[group.id];
             const name = labels.groups[group.id];
@@ -60,8 +62,7 @@ export function TechnologySection({
                     "--reveal-delay": `${(index % 3) * 100}ms`,
                   } as CSSProperties
                 }
-                // Tres tarjetas arriba y dos más anchas abajo en escritorio.
-                className={`group/tech glass-panel hover:border-electric-violet/50 relative overflow-hidden rounded-(--radius-card) p-6 transition-[border-color,box-shadow,transform] duration-500 hover:shadow-[0_20px_60px_-30px_rgb(139_108_255/0.9)] motion-safe:hover:-translate-y-1 ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+                className={`group/tech glass-panel hover:border-electric-violet/50 relative overflow-hidden rounded-(--radius-card) p-6 transition-[border-color,box-shadow,transform] duration-500 hover:shadow-[0_20px_60px_-30px_rgb(139_108_255/0.9)] motion-safe:hover:-translate-y-1`}
               >
                 <div
                   aria-hidden="true"

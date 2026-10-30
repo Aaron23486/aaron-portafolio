@@ -33,7 +33,7 @@ export interface Project {
 }
 
 export type TechnologyGroupId =
-  "frontend" | "backend" | "data" | "tools" | "practices";
+  "frontend" | "backend" | "data" | "ai" | "tools" | "practices";
 
 export interface TechnologyGroup {
   id: TechnologyGroupId;

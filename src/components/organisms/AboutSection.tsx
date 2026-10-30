@@ -1,6 +1,8 @@
 import {
+  Bot,
   Building2,
   DatabaseZap,
+  ListChecks,
   ShieldCheck,
   Workflow,
   type LucideIcon,
@@ -14,6 +16,8 @@ import { WaveDivider } from "./AuroraBackdrop";
 const focusIcons: readonly LucideIcon[] = [
   Building2,
   Workflow,
+  Bot,
+  ListChecks,
   DatabaseZap,
   ShieldCheck,
 ];

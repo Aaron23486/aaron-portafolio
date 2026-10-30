@@ -64,6 +64,7 @@ const es = {
     paragraphs: [
       "Soy desarrollador de software y estudiante de Ingeniería en Sistemas Computacionales. Tengo más de 3 años de experiencia práctica creando aplicaciones empresariales y automatizaciones que convierten procesos manuales en operaciones digitales, trazables y medibles.",
       "Combino análisis funcional, desarrollo, gestión de datos y conocimiento de la operación: levanto requerimientos, modelo procesos, defino reglas de negocio y las llevo a aplicaciones probadas y documentadas.",
+      "Integro la inteligencia artificial en mi forma de trabajar: especifico con SDD, valido con TDD y orquesto agentes especializados para explorar, implementar y revisar. También automatizo procesos con n8n y conecto modelos de IA con herramientas y datos mediante MCP.",
       "Me interesa especialmente la ciberseguridad y las buenas prácticas: control de acceso, validaciones en el servidor y bases de datos que protegen sus propias reglas.",
     ],
     facts: [
@@ -85,6 +86,14 @@ const es = {
         text: "Flujos digitales que reemplazan controles manuales.",
       },
       {
+        title: "IA aplicada y agentes",
+        text: "Agentes, MCP y flujos con n8n conectados a procesos reales.",
+      },
+      {
+        title: "Especificar y probar",
+        text: "SDD para definir antes de construir; TDD para proteger lo construido.",
+      },
+      {
         title: "Datos y trazabilidad",
         text: "Historiales, auditoría e indicadores para decidir mejor.",
       },
@@ -104,8 +113,9 @@ const es = {
       frontend: "Frontend",
       backend: "Backend",
       data: "Bases de datos y BI",
-      tools: "Herramientas",
-      practices: "Arquitectura y buenas prácticas",
+      ai: "IA y automatización",
+      tools: "Infraestructura y herramientas",
+      practices: "Seguridad y métodos",
     },
   },
   contact: {
