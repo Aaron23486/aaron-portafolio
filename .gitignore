@@ -46,3 +46,7 @@ next-env.d.ts
 # Playwright
 /test-results/
 /playwright-report/
+
+# Internal working notes and agent instructions stay local
+/.claude/
+/CLAUDE.md
