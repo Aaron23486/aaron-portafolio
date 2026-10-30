@@ -1,7 +1,208 @@
 @import "tailwindcss";
 
-/* Base provisional de U0; los tokens Aurora Digital llegan en U1. */
-body {
-  background: #08111f;
-  color: #eaf4ff;
+/* ==========================================================================
+   Aurora Digital — tokens de diseño (única fuente de color del sitio)
+   ========================================================================== */
+@theme {
+  /* Paleta oficial */
+  --color-midnight-navy: #08111f;
+  --color-deep-space: #0f1f33;
+  --color-aurora-cyan: #4fd1ff;
+  --color-electric-violet: #8b6cff;
+  --color-soft-magenta: #d66bff;
+  --color-mist-white: #eaf4ff;
+
+  /* Derivados: texto, superficies, bordes y estados */
+  --color-ink-secondary: #b9cae0;
+  --color-ink-muted: #8ea4c2;
+  --color-surface-elevated: #14294a;
+  --color-surface-glass: rgb(15 31 51 / 0.62);
+  --color-border-subtle: rgb(234 244 255 / 0.1);
+  --color-border-strong: rgb(234 244 255 / 0.2);
+  --color-aurora-teal: #5eead4;
+  --color-violet-text: #a993ff;
+
+  /* Tipografía (las variables las define next/font en el layout) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radios y sombras */
+  --radius-card: 1.5rem;
+  --shadow-card: 0 24px 60px -24px rgb(2 6 16 / 0.85);
+  --shadow-glow:
+    0 0 0 1px rgb(79 209 255 / 0.35), 0 12px 40px -12px rgb(79 209 255 / 0.45);
+
+  /* Animaciones */
+  --ease-aurora: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-aurora-drift: aurora-drift 24s ease-in-out infinite alternate;
+  --animate-aurora-drift-slow: aurora-drift 36s ease-in-out infinite
+    alternate-reverse;
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-light-flow: light-flow 14s linear infinite;
+}
+
+:root {
+  --gradient-aurora: linear-gradient(
+    100deg,
+    var(--color-aurora-cyan) 0%,
+    var(--color-electric-violet) 52%,
+    var(--color-soft-magenta) 100%
+  );
+  --header-height: 4.5rem;
+  color-scheme: dark;
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) rotate(-6deg) scale(1);
+  }
+  100% {
+    transform: translate3d(5%, 3%, 0) rotate(4deg) scale(1.08);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes light-flow {
+  to {
+    stroke-dashoffset: -1200;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-midnight-navy);
+    color: var(--color-mist-white);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: rgb(139 108 255 / 0.45);
+    color: var(--color-mist-white);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-aurora-cyan);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   Utilidades del sistema
+   ========================================================================== */
+@utility text-gradient {
+  background-image: var(--gradient-aurora);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  /* Respaldo legible si el recorte de fondo no está disponible. */
+  @supports not (background-clip: text) {
+    color: var(--color-aurora-cyan);
+  }
+}
+
+@utility bg-aurora {
+  background-image: var(--gradient-aurora);
+}
+
+@utility glass-panel {
+  background-color: var(--color-surface-glass);
+  border: 1px solid var(--color-border-subtle);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Borde luminoso con el gradiente Aurora (máscara sobre un pseudo-elemento). */
+@utility aurora-border {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--gradient-aurora);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* ==========================================================================
+   Revelado al hacer scroll (sin JS el contenido se ve siempre)
+   ========================================================================== */
+.js [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+
+.js [data-reveal] {
+  transition:
+    opacity 0.8s var(--ease-aurora),
+    transform 0.8s var(--ease-aurora);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Entrada del Hero: CSS puro, visible aunque no cargue JavaScript. */
+.hero-enter {
+  animation: rise-in 0.9s var(--ease-aurora) both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+/* ==========================================================================
+   Movimiento reducido: sin desplazamientos ni animaciones ambientales
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .js [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
 }

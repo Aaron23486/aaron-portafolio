@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // Screenshots are pre-optimized to WebP at fixed sizes; the default loader needs a server.
   images: { unoptimized: true },
+  experimental: { globalNotFound: true },
   turbopack: {
     rules: {
       "*.css": {

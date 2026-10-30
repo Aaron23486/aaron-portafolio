@@ -42,3 +42,7 @@ next-env.d.ts
 
 # CV PDFs stay local until the owner approves a public version
 /public/cv/*.pdf
+
+# Playwright
+/test-results/
+/playwright-report/
