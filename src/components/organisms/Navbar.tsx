@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { BrandMark } from "@/components/atoms/BrandMark";
@@ -13,11 +13,15 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import type { Dictionary } from "@/i18n";
 import type { Locale } from "@/i18n/config";
 import { cn } from "@/lib/cn";
+import type { CvFile } from "@/types/content";
 
 export interface NavbarProps {
   locale: Locale;
   brandName: string;
   githubUrl: string;
+  /** CV del idioma activo; si el PDF no existe no se muestra el botón. */
+  cv?: CvFile;
+  cvFormat: string;
   nav: Dictionary["nav"];
   a11y: Dictionary["a11y"];
 }
@@ -28,6 +32,8 @@ export function Navbar({
   locale,
   brandName,
   githubUrl,
+  cv,
+  cvFormat,
   nav,
   a11y,
 }: NavbarProps) {
@@ -114,9 +120,19 @@ export function Navbar({
             label={nav.github}
             newTabHint={a11y.opensInNewTab}
           />
-          <Button href="#contact" variant="outline" size="md">
-            {nav.talk}
-          </Button>
+          {cv ? (
+            <Button
+              href={cv.href}
+              download
+              hrefLang={cv.locale}
+              variant="outline"
+              size="md"
+            >
+              <Download aria-hidden="true" className="size-4" />
+              {nav.downloadCv}
+              <span className="sr-only">({cvFormat})</span>
+            </Button>
+          ) : null}
         </div>
 
         <button
@@ -174,6 +190,18 @@ export function Navbar({
                 className="px-3"
               />
             </div>
+            {cv ? (
+              <Button
+                href={cv.href}
+                download
+                hrefLang={cv.locale}
+                className="mt-4 w-full"
+              >
+                <Download aria-hidden="true" className="size-4" />
+                {nav.downloadCv}
+                <span className="sr-only">({cvFormat})</span>
+              </Button>
+            ) : null}
           </m.div>
         ) : null}
       </AnimatePresence>

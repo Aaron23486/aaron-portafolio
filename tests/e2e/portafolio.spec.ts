@@ -122,6 +122,7 @@ for (const [locale, copy] of Object.entries(locales)) {
     test("ofrece el CV del idioma activo solo si el PDF existe", async ({
       page,
       request,
+      isMobile,
     }) => {
       await page.goto(`/${locale}/`);
       const primary = page.getByRole("link", { name: new RegExp(copy.cv) });
@@ -133,6 +134,14 @@ for (const [locale, copy] of Object.entries(locales)) {
         "href",
         `/cv/aaron-gutierrez-${locale}.pdf`,
       );
+      // El botón de la barra (en móvil, dentro del menú) descarga el CV del idioma activo.
+      if (isMobile)
+        await page.getByRole("button", { name: /menú|menu/i }).click();
+      const navCv = page.locator(
+        `header a[href="/cv/aaron-gutierrez-${locale}.pdf"]:visible`,
+      );
+      await expect(navCv).toHaveCount(1);
+      await expect(navCv).toHaveAttribute("download", "");
       for (const file of ["es", "en"]) {
         const response = await request.get(`/cv/aaron-gutierrez-${file}.pdf`);
         expect(response.status()).toBe(200);

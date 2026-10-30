@@ -48,6 +48,8 @@ export function PortfolioTemplate({
         locale={locale}
         brandName={site.shortName}
         githubUrl={site.githubUrl}
+        cv={cvFiles[0]}
+        cvFormat={t.contact.cvFormat}
         nav={t.nav}
         a11y={t.a11y}
       />

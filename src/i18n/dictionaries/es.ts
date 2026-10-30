@@ -29,7 +29,7 @@ const es = {
     technologies: "Tecnologías",
     contact: "Contacto",
     github: "GitHub",
-    talk: "Hablemos",
+    downloadCv: "Descargar CV",
   },
   hero: {
     eyebrow: "Desarrollador de software",

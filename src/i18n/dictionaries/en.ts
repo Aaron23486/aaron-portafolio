@@ -26,7 +26,7 @@ const en: Dictionary = {
     technologies: "Technologies",
     contact: "Contact",
     github: "GitHub",
-    talk: "Let's talk",
+    downloadCv: "Download CV",
   },
   hero: {
     eyebrow: "Software developer",
