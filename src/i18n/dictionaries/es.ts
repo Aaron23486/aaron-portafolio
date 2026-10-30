@@ -116,6 +116,7 @@ const es = {
       "¿Buscas un desarrollador para tu equipo? Escríbeme por correo o revisa mi código en GitHub.",
     emailLabel: "Escríbeme",
     emailTerm: "Correo",
+    locationTerm: "Ubicación",
     githubLabel: "Perfil de GitHub",
     cvTitle: "Currículum",
     cvPrimary: "Descargar CV en español",

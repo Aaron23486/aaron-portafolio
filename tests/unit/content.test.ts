@@ -118,6 +118,11 @@ describe("contacto y datos sensibles", () => {
     expect(siteConfig.email).toBe("aaron20770@gmail.com");
   });
 
+  it("la ubicación pública es solo provincia y país", () => {
+    expect(siteConfig.location).toBe("Alajuela, Costa Rica");
+    const content = JSON.stringify({ siteConfig, es, en });
+  });
+
   it("no hay LinkedIn, teléfonos ni empresas reales en el código fuente", () => {
     const files: string[] = [];
     const walk = (dir: string) => {

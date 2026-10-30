@@ -19,6 +19,7 @@ export interface PortfolioContent {
     shortName: string;
     githubUrl: string;
     githubUsername: string;
+    location: string;
     email: string;
   };
   projects: readonly Project[];
@@ -73,6 +74,7 @@ export function PortfolioTemplate({
           email={site.email}
           githubUrl={site.githubUrl}
           githubUsername={site.githubUsername}
+          location={site.location}
           cvFiles={cvFiles}
           contact={t.contact}
           newTabHint={t.a11y.opensInNewTab}

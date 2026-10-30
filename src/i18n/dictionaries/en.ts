@@ -114,6 +114,7 @@ const en: Dictionary = {
       "Looking for a developer for your team? Send me an email or review my code on GitHub.",
     emailLabel: "Email me",
     emailTerm: "Email",
+    locationTerm: "Location",
     githubLabel: "GitHub profile",
     cvTitle: "Résumé",
     cvPrimary: "Download English CV",

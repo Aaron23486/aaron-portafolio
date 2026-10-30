@@ -11,6 +11,7 @@ export interface ContactSectionProps {
   email: string;
   githubUrl: string;
   githubUsername: string;
+  location: string;
   cvFiles: readonly CvFile[];
   contact: Dictionary["contact"];
   newTabHint: string;
@@ -20,6 +21,7 @@ export function ContactSection({
   email,
   githubUrl,
   githubUsername,
+  location,
   cvFiles,
   contact,
   newTabHint,
@@ -74,6 +76,10 @@ export function ContactSection({
               <div className="flex flex-wrap gap-x-2">
                 <dt className="text-ink-muted">GitHub</dt>
                 <dd className="text-mist-white">@{githubUsername}</dd>
+              </div>
+              <div className="flex flex-wrap gap-x-2">
+                <dt className="text-ink-muted">{contact.locationTerm}</dt>
+                <dd className="text-mist-white">{location}</dd>
               </div>
             </dl>
           </div>
