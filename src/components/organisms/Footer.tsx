@@ -44,7 +44,7 @@ export function Footer({
           <SocialLink kind="email" href={`mailto:${email}`} label={email} />
           <a
             href="#home"
-            className="border-border-subtle text-sage-gray hover:border-neo-emerald/60 hover:text-pearl-white ml-2 grid size-11 place-items-center rounded-full border transition-colors"
+            className="border-border-subtle text-ink-secondary hover:border-aurora-cyan/60 hover:text-mist-white ml-2 grid size-11 place-items-center rounded-full border transition-colors"
           >
             <ArrowUp aria-hidden="true" className="size-4" />
             <span className="sr-only">{a11y.backToTop}</span>

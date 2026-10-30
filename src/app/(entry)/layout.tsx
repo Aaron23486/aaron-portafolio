@@ -3,7 +3,7 @@ import { fontVariables } from "../fonts";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Aarón Gutiérrez Morales — Portafolio / Portfolio",
+  title: "Aarón Gutiérrez Morales — Aurora Digital",
   robots: { index: false, follow: true },
 };
 

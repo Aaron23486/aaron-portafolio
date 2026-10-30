@@ -29,8 +29,8 @@ function contrast(a: string, b: string): number {
 }
 
 describe("contraste WCAG 2.2 AA de los tokens", () => {
-  const backgrounds = ["obsidian", "emerald-surface", "surface-elevated"];
-  const bodyText = ["pearl-white", "sage-gray", "ink-muted"];
+  const backgrounds = ["midnight-navy", "deep-space", "surface-elevated"];
+  const bodyText = ["mist-white", "ink-secondary", "ink-muted"];
 
   for (const background of backgrounds) {
     for (const text of bodyText) {
@@ -43,18 +43,23 @@ describe("contraste WCAG 2.2 AA de los tokens", () => {
   }
 
   it("los acentos usados como texto pasan 4,5:1 sobre el fondo principal", () => {
-    for (const accent of ["neo-emerald", "seafoam", "mint-glow"]) {
+    for (const accent of [
+      "aurora-cyan",
+      "aurora-teal",
+      "soft-magenta",
+      "violet-text",
+    ]) {
       expect(
-        contrast(token(accent), token("obsidian")),
+        contrast(token(accent), token("midnight-navy")),
         accent,
       ).toBeGreaterThanOrEqual(4.5);
     }
   });
 
   it("el texto oscuro sobre el gradiente de los botones pasa 4,5:1 en sus tres paradas", () => {
-    for (const stop of ["neo-emerald", "jade", "mint-glow"]) {
+    for (const stop of ["aurora-cyan", "electric-violet", "soft-magenta"]) {
       expect(
-        contrast(token("obsidian"), token(stop)),
+        contrast(token("midnight-navy"), token(stop)),
         stop,
       ).toBeGreaterThanOrEqual(4.5);
     }

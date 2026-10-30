@@ -5,14 +5,14 @@ type ButtonVariant = "primary" | "outline" | "ghost";
 type ButtonSize = "md" | "lg";
 
 const base =
-  "group/button inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-[transform,box-shadow,background-color,border-color,color] duration-300 ease-(--ease-smooth) active:scale-[0.97] motion-safe:hover:-translate-y-0.5";
+  "group/button inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-[transform,box-shadow,background-color,border-color,color] duration-300 ease-(--ease-aurora) active:scale-[0.97] motion-safe:hover:-translate-y-0.5";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-brand-gradient text-obsidian shadow-[0_10px_30px_-10px_rgb(50_230_161/0.7)] hover:shadow-[0_14px_40px_-10px_rgb(31_185_128/0.85)]",
+    "bg-aurora text-midnight-navy shadow-[0_10px_30px_-10px_rgb(79_209_255/0.7)] hover:shadow-[0_14px_40px_-10px_rgb(139_108_255/0.85)]",
   outline:
-    "border border-border-strong bg-obsidian/40 text-pearl-white backdrop-blur hover:border-neo-emerald/70 hover:shadow-glow",
-  ghost: "text-sage-gray hover:text-pearl-white",
+    "border border-border-strong bg-midnight-navy/40 text-mist-white backdrop-blur hover:border-aurora-cyan/70 hover:shadow-glow",
+  ghost: "text-ink-secondary hover:text-mist-white",
 };
 
 const sizes: Record<ButtonSize, string> = {

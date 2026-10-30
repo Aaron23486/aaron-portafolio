@@ -61,14 +61,14 @@ export function TechnologySection({
                   } as CSSProperties
                 }
                 // Tres tarjetas arriba y dos más anchas abajo en escritorio.
-                className={`group/tech glass-panel hover:border-jade/50 relative overflow-hidden rounded-(--radius-card) p-6 transition-[border-color,box-shadow,transform] duration-500 hover:shadow-[0_20px_60px_-30px_rgb(31_185_128/0.9)] motion-safe:hover:-translate-y-1 ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+                className={`group/tech glass-panel hover:border-electric-violet/50 relative overflow-hidden rounded-(--radius-card) p-6 transition-[border-color,box-shadow,transform] duration-500 hover:shadow-[0_20px_60px_-30px_rgb(139_108_255/0.9)] motion-safe:hover:-translate-y-1 ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
               >
                 <div
                   aria-hidden="true"
-                  className="bg-brand-gradient absolute inset-x-6 top-0 h-px opacity-40 transition-opacity duration-500 group-hover/tech:opacity-100"
+                  className="bg-aurora absolute inset-x-6 top-0 h-px opacity-40 transition-opacity duration-500 group-hover/tech:opacity-100"
                 />
-                <h3 className="font-display text-pearl-white mb-5 flex items-center gap-3 text-lg font-semibold">
-                  <span className="border-border-subtle bg-obsidian/70 text-neo-emerald group-hover/tech:text-mint-glow grid size-10 place-items-center rounded-xl border transition-colors duration-500">
+                <h3 className="font-display text-mist-white mb-5 flex items-center gap-3 text-lg font-semibold">
+                  <span className="border-border-subtle bg-midnight-navy/70 text-aurora-cyan group-hover/tech:text-soft-magenta grid size-10 place-items-center rounded-xl border transition-colors duration-500">
                     <Icon aria-hidden="true" className="size-5" />
                   </span>
                   {name}

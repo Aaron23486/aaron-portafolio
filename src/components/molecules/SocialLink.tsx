@@ -36,7 +36,7 @@ export function SocialLink({
       newTabHint={newTabHint}
       aria-label={showLabel ? undefined : label}
       className={cn(
-        "text-sage-gray hover:text-pearl-white inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full transition-colors duration-300",
+        "text-ink-secondary hover:text-mist-white inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full transition-colors duration-300",
         className,
       )}
     >

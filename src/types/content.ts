@@ -6,7 +6,7 @@ export type Localized<T = string> = Record<Locale, T>;
 export type SectionId =
   "home" | "projects" | "about" | "technologies" | "contact";
 
-export type AccentToken = "emerald" | "jade" | "mint" | "seafoam";
+export type AccentToken = "cyan" | "violet" | "magenta" | "teal";
 
 export interface Screenshot {
   /** Ruta base en `public/` sin sufijo de ancho ni extensión, p. ej. `/projects/dactivos/dashboard`. */

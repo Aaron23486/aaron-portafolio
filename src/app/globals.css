@@ -1,27 +1,26 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Neo Emerald — tokens de diseño (única fuente de color del sitio)
+   Aurora Digital — tokens de diseño (única fuente de color del sitio)
    ========================================================================== */
 @theme {
   /* Paleta oficial */
-  --color-obsidian: #06120f; /* Obsidian Black: fondo principal */
-  --color-deep-forest: #0b201a; /* Deep Forest: fondos secundarios */
-  --color-emerald-surface: #102a23; /* Emerald Surface: tarjetas y componentes */
-  --color-neo-emerald: #32e6a1; /* Neo Emerald: color principal e interacciones */
-  --color-mint-glow: #7cffc6; /* Mint Glow: iluminación y hover */
-  --color-forest-border: #285447; /* Forest Border: bordes y divisores */
-  --color-pearl-white: #f1faf6; /* Pearl White: texto principal */
-  --color-sage-gray: #a2bcb2; /* Sage Gray: textos secundarios */
+  --color-midnight-navy: #08111f;
+  --color-deep-space: #0f1f33;
+  --color-aurora-cyan: #4fd1ff;
+  --color-electric-violet: #8b6cff;
+  --color-soft-magenta: #d66bff;
+  --color-mist-white: #eaf4ff;
 
-  /* Derivados: gradiente, acentos, texto, superficies y estados */
-  --color-jade: #1fb980; /* Esmeralda oscuro: inicio del gradiente */
-  --color-seafoam: #4fe3c1;
-  --color-ink-muted: #88a69a;
-  --color-surface-elevated: #163a30;
-  --color-surface-glass: rgb(16 42 35 / 0.66);
-  --color-border-subtle: rgb(40 84 71 / 0.7);
-  --color-border-strong: #3a7563;
+  /* Derivados: texto, superficies, bordes y estados */
+  --color-ink-secondary: #b9cae0;
+  --color-ink-muted: #8ea4c2;
+  --color-surface-elevated: #14294a;
+  --color-surface-glass: rgb(15 31 51 / 0.62);
+  --color-border-subtle: rgb(234 244 255 / 0.1);
+  --color-border-strong: rgb(234 244 255 / 0.2);
+  --color-aurora-teal: #5eead4;
+  --color-violet-text: #a993ff;
 
   /* Tipografía (las variables las define next/font en el layout) */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -30,32 +29,33 @@
 
   /* Radios y sombras */
   --radius-card: 1.5rem;
-  --shadow-card: 0 24px 60px -24px rgb(1 8 6 / 0.9);
+  --shadow-card: 0 24px 60px -24px rgb(2 6 16 / 0.85);
   --shadow-glow:
-    0 0 0 1px rgb(50 230 161 / 0.4), 0 12px 40px -12px rgb(50 230 161 / 0.5);
+    0 0 0 1px rgb(79 209 255 / 0.35), 0 12px 40px -12px rgb(79 209 255 / 0.45);
 
   /* Animaciones */
-  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-  --animate-glow-drift: glow-drift 24s ease-in-out infinite alternate;
-  --animate-glow-drift-slow: glow-drift 36s ease-in-out infinite
+  --ease-aurora: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-aurora-drift: aurora-drift 24s ease-in-out infinite alternate;
+  --animate-aurora-drift-slow: aurora-drift 36s ease-in-out infinite
     alternate-reverse;
   --animate-float: float 9s ease-in-out infinite;
   --animate-light-flow: light-flow 14s linear infinite;
+  --animate-twinkle: twinkle 5s ease-in-out infinite;
+  --animate-twinkle-slow: twinkle 8s ease-in-out 1.5s infinite;
 }
 
 :root {
-  /* Gradiente principal: esmeralda oscuro → verde neón → menta luminosa */
-  --gradient-brand: linear-gradient(
+  --gradient-aurora: linear-gradient(
     100deg,
-    var(--color-jade) 0%,
-    var(--color-neo-emerald) 52%,
-    var(--color-mint-glow) 100%
+    var(--color-aurora-cyan) 0%,
+    var(--color-electric-violet) 52%,
+    var(--color-soft-magenta) 100%
   );
   --header-height: 4.5rem;
   color-scheme: dark;
 }
 
-@keyframes glow-drift {
+@keyframes aurora-drift {
   0% {
     transform: translate3d(-4%, -2%, 0) rotate(-6deg) scale(1);
   }
@@ -102,6 +102,275 @@
 }
 
 /* ==========================================================================
+   Fondo espacial (estrellas, nebulosas y estrella fugaz)
+   ========================================================================== */
+.stars {
+  background-repeat: repeat;
+}
+
+.stars-far {
+  background-image:
+    radial-gradient(
+      1px 1px at 0px 295px,
+      rgb(234 244 255 / 0.54) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 67px 233px,
+      rgb(234 244 255 / 0.7) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 105px 241px,
+      rgb(234 244 255 / 0.84) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 174px 219px,
+      rgb(234 244 255 / 0.76) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 261px 77px,
+      rgb(234 244 255 / 0.59) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 227px 223px,
+      rgb(234 244 255 / 0.39) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 219px 150px,
+      rgb(234 244 255 / 0.95) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 258px 39px,
+      rgb(234 244 255 / 0.68) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 295px 220px,
+      rgb(234 244 255 / 0.77) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 185px 292px,
+      rgb(234 244 255 / 0.94) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 119px 107px,
+      rgb(234 244 255 / 0.89) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 106px 49px,
+      rgb(234 244 255 / 0.54) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 137px 94px,
+      rgb(234 244 255 / 0.96) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 178px 233px,
+      rgb(234 244 255 / 0.92) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 19px 88px,
+      rgb(234 244 255 / 0.71) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 163px 135px,
+      rgb(234 244 255 / 0.48) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 291px 18px,
+      rgb(234 244 255 / 0.59) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 110px 213px,
+      rgb(234 244 255 / 0.95) 50%,
+      transparent 100%
+    );
+  background-size: 320px 320px;
+  opacity: 0.55;
+}
+
+.stars-mid {
+  background-image:
+    radial-gradient(
+      1.5px 1.5px at 237px 76px,
+      rgb(234 244 255 / 0.61) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 130px 168px,
+      rgb(234 244 255 / 0.63) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 153px 245px,
+      rgb(234 244 255 / 0.75) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 107px 417px,
+      rgb(234 244 255 / 0.65) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 397px 292px,
+      rgb(234 244 255 / 0.76) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 237px 232px,
+      rgb(234 244 255 / 0.8) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 432px 182px,
+      rgb(234 244 255 / 0.81) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 116px 270px,
+      rgb(234 244 255 / 0.58) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 152px 180px,
+      rgb(234 244 255 / 0.87) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 404px 51px,
+      rgb(234 244 255 / 0.88) 50%,
+      transparent 100%
+    );
+  background-size: 460px 460px;
+}
+
+.stars-near {
+  background-image:
+    radial-gradient(
+      2px 2px at 48px 252px,
+      rgb(214 230 255 / 0.45) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 48px 618px,
+      rgb(214 230 255 / 0.49) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 392px 89px,
+      rgb(214 230 255 / 0.65) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 368px 85px,
+      rgb(214 230 255 / 0.95) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 548px 552px,
+      rgb(214 230 255 / 0.93) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 563px 472px,
+      rgb(79 209 255 / 0.53) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 7px 154px,
+      rgb(79 209 255 / 0.4) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 1px 382px,
+      rgb(214 107 255 / 0.5) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 460px 303px,
+      rgb(214 107 255 / 0.8) 50%,
+      transparent 100%
+    );
+  background-size: 620px 620px;
+}
+
+/* Nebulosas: halos muy tenues fijos detrás de todo. */
+.nebula {
+  background:
+    radial-gradient(
+      ellipse 40% 30% at 85% 30%,
+      rgb(139 108 255 / 0.1),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 35% 25% at 10% 70%,
+      rgb(79 209 255 / 0.08),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 30% 20% at 60% 95%,
+      rgb(214 107 255 / 0.07),
+      transparent 70%
+    );
+}
+
+.shooting-star {
+  position: absolute;
+  top: 12%;
+  left: 70%;
+  width: 140px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgb(234 244 255 / 0.9), transparent);
+  opacity: 0;
+  transform: rotate(-24deg);
+  animation: shooting-star 14s ease-in 4s infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes shooting-star {
+  0% {
+    opacity: 0;
+    transform: rotate(-24deg) translate3d(0, 0, 0);
+  }
+  2% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0;
+    transform: rotate(-24deg) translate3d(-420px, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-24deg) translate3d(-420px, 0, 0);
+  }
+}
+
+/* ==========================================================================
    Base
    ========================================================================== */
 @layer base {
@@ -112,20 +381,20 @@
   }
 
   body {
-    background-color: var(--color-obsidian);
-    color: var(--color-pearl-white);
+    background-color: var(--color-midnight-navy);
+    color: var(--color-mist-white);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
     overflow-x: clip;
   }
 
   ::selection {
-    background: rgb(50 230 161 / 0.35);
-    color: var(--color-pearl-white);
+    background: rgb(139 108 255 / 0.45);
+    color: var(--color-mist-white);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-neo-emerald);
+    outline: 2px solid var(--color-aurora-cyan);
     outline-offset: 3px;
     border-radius: 0.5rem;
   }
@@ -135,18 +404,18 @@
    Utilidades del sistema
    ========================================================================== */
 @utility text-gradient {
-  background-image: var(--gradient-brand);
+  background-image: var(--gradient-aurora);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   /* Respaldo legible si el recorte de fondo no está disponible. */
   @supports not (background-clip: text) {
-    color: var(--color-neo-emerald);
+    color: var(--color-aurora-cyan);
   }
 }
 
-@utility bg-brand-gradient {
-  background-image: var(--gradient-brand);
+@utility bg-aurora {
+  background-image: var(--gradient-aurora);
 }
 
 @utility glass-panel {
@@ -156,8 +425,8 @@
   -webkit-backdrop-filter: blur(14px) saturate(140%);
 }
 
-/* Borde luminoso con el gradiente del sistema (máscara sobre un pseudo-elemento). */
-@utility glow-border {
+/* Borde luminoso con el gradiente Aurora (máscara sobre un pseudo-elemento). */
+@utility aurora-border {
   position: relative;
   &::before {
     content: "";
@@ -165,7 +434,7 @@
     inset: 0;
     padding: 1px;
     border-radius: inherit;
-    background: var(--gradient-brand);
+    background: var(--gradient-aurora);
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
@@ -185,19 +454,19 @@
 
 .js [data-reveal] {
   transition:
-    opacity 0.8s var(--ease-smooth),
-    transform 0.8s var(--ease-smooth);
+    opacity 0.8s var(--ease-aurora),
+    transform 0.8s var(--ease-aurora);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
 /* Entrada del Hero: CSS puro, visible aunque no cargue JavaScript. */
 .hero-enter {
-  animation: rise-in 0.7s var(--ease-smooth) both;
+  animation: rise-in 0.7s var(--ease-aurora) both;
   animation-delay: var(--enter-delay, 0ms);
 }
 
 .hero-enter-soft {
-  animation: rise-in-soft 0.7s var(--ease-smooth) both;
+  animation: rise-in-soft 0.7s var(--ease-aurora) both;
 }
 
 /* ==========================================================================

@@ -6,7 +6,7 @@ import { Eyebrow, GradientHeading, Lead } from "@/components/atoms/Typography";
 import { heroShots } from "@/data/hero";
 import type { Dictionary } from "@/i18n";
 import type { Locale } from "@/i18n/config";
-import { AmbientBackdrop, LightCurve, Mountains } from "./AmbientBackdrop";
+import { AuroraBackdrop, LightCurve, Mountains } from "./AuroraBackdrop";
 import { HeroVisual } from "./HeroVisual";
 
 export interface HeroSectionProps {
@@ -31,13 +31,8 @@ export function HeroSection({
       aria-labelledby="home-title"
       className="relative isolate overflow-hidden pt-[calc(var(--header-height)+2.5rem)] pb-28 sm:pb-36 lg:min-h-[100svh] lg:pt-[calc(var(--header-height)+4rem)]"
     >
-      <AmbientBackdrop />
-      <LightCurve
-        id="hero-curve-top"
-        flip
-        className="top-2 opacity-50 max-md:hidden"
-      />
-      <LightCurve id="hero-curve" className="top-[38%] opacity-80" />
+      <AuroraBackdrop />
+      <LightCurve id="hero-curve" className="top-[38%] opacity-70" />
       <Mountains id="hero-mountains" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:px-8">
@@ -78,12 +73,12 @@ export function HeroSection({
             </Button>
           </div>
           <ul
-            className="hero-enter text-sage-gray mt-2 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-6"
+            className="hero-enter text-ink-secondary mt-2 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-6"
             style={enterDelay(480)}
           >
             {hero.highlights.map((item) => (
               <li key={item} className="inline-flex items-center gap-2">
-                <Check aria-hidden="true" className="text-seafoam size-4" />
+                <Check aria-hidden="true" className="text-aurora-teal size-4" />
                 {item}
               </li>
             ))}

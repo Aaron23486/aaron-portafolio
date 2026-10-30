@@ -13,9 +13,9 @@ export function Badge({ children, tone = "default", className }: BadgeProps) {
       className={cn(
         "inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium tracking-wide transition-colors duration-300",
         tone === "default" &&
-          "border-border-subtle bg-obsidian/50 text-sage-gray",
+          "border-border-subtle bg-midnight-navy/50 text-ink-secondary",
         tone === "accent" &&
-          "text-pearl-white border-(--accent)/40 bg-(--accent)/10",
+          "text-mist-white border-(--accent)/40 bg-(--accent)/10",
         className,
       )}
     >

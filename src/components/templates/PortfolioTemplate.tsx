@@ -2,6 +2,7 @@ import { AboutSection } from "@/components/organisms/AboutSection";
 import { ContactSection } from "@/components/organisms/ContactSection";
 import { Footer } from "@/components/organisms/Footer";
 import { HeroSection } from "@/components/organisms/HeroSection";
+import { Starfield } from "@/components/organisms/Starfield";
 import { Navbar } from "@/components/organisms/Navbar";
 import { ProjectsSection } from "@/components/organisms/ProjectsSection";
 import { TechnologySection } from "@/components/organisms/TechnologySection";
@@ -38,9 +39,10 @@ export function PortfolioTemplate({
 }: PortfolioContent) {
   return (
     <MotionProvider>
+      <Starfield />
       <a
         href="#main"
-        className="bg-brand-gradient text-obsidian fixed top-3 left-3 z-[60] -translate-y-24 rounded-full px-5 py-3 font-semibold transition-transform focus-visible:translate-y-0"
+        className="bg-aurora text-midnight-navy fixed top-3 left-3 z-[60] -translate-y-24 rounded-full px-5 py-3 font-semibold transition-transform focus-visible:translate-y-0"
       >
         {t.a11y.skipToContent}
       </a>

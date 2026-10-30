@@ -32,7 +32,7 @@ export function CvDownload({
           download
           hrefLang={alternate.locale}
           lang={alternate.locale}
-          className="text-sage-gray hover:text-pearl-white inline-flex min-h-11 items-center gap-2 px-1 text-sm underline-offset-4 transition-colors hover:underline"
+          className="text-ink-secondary hover:text-mist-white inline-flex min-h-11 items-center gap-2 px-1 text-sm underline-offset-4 transition-colors hover:underline"
         >
           <FileText aria-hidden="true" className="size-4" />
           {alternateLabel}
