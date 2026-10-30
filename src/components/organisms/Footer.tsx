@@ -7,6 +7,7 @@ export interface FooterProps {
   name: string;
   githubUrl: string;
   email: string;
+  emailHref: string;
   footer: Dictionary["footer"];
   a11y: Dictionary["a11y"];
   githubLabel: string;
@@ -16,6 +17,7 @@ export function Footer({
   name,
   githubUrl,
   email,
+  emailHref,
   footer,
   a11y,
   githubLabel,
@@ -41,7 +43,12 @@ export function Footer({
             label={githubLabel}
             newTabHint={a11y.opensInNewTab}
           />
-          <SocialLink kind="email" href={`mailto:${email}`} label={email} />
+          <SocialLink
+            kind="email"
+            href={emailHref}
+            label={email}
+            newTabHint={a11y.opensInNewTab}
+          />
           <a
             href="#home"
             className="border-border-subtle text-ink-secondary hover:border-aurora-cyan/60 hover:text-mist-white ml-2 grid size-11 place-items-center rounded-full border transition-colors"

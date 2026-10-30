@@ -10,10 +10,6 @@ export function isOwnRepositoryUrl(url: string): boolean {
   return repositoryPattern.test(url);
 }
 
-export function isMailto(href: string): boolean {
-  return /^mailto:[^@\s]+@[^@\s]+\.[^@\s]+$/.test(href);
-}
-
 /** Errores de integridad del catálogo; vacío si todo está bien. */
 export function validateProjects(catalog: readonly Project[]): string[] {
   const errors: string[] = [];

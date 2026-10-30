@@ -8,6 +8,7 @@ import { ProjectsSection } from "@/components/organisms/ProjectsSection";
 import { TechnologySection } from "@/components/organisms/TechnologySection";
 import type { Dictionary } from "@/i18n";
 import type { Locale } from "@/i18n/config";
+import { gmailComposeUrl } from "@/lib/contact";
 import type { CvFile, Project, TechnologyGroup } from "@/types/content";
 import { MotionProvider } from "./MotionProvider";
 import { RevealObserver } from "./RevealObserver";
@@ -37,6 +38,7 @@ export function PortfolioTemplate({
   technologyGroups,
   cvFiles,
 }: PortfolioContent) {
+  const emailHref = gmailComposeUrl(site.email, t.contact.emailSubject);
   return (
     <MotionProvider>
       <Starfield />
@@ -76,6 +78,7 @@ export function PortfolioTemplate({
         />
         <ContactSection
           email={site.email}
+          emailHref={emailHref}
           githubUrl={site.githubUrl}
           githubUsername={site.githubUsername}
           location={site.location}
@@ -88,6 +91,7 @@ export function PortfolioTemplate({
         name={site.name}
         githubUrl={site.githubUrl}
         email={site.email}
+        emailHref={emailHref}
         footer={t.footer}
         a11y={t.a11y}
         githubLabel={t.nav.github}

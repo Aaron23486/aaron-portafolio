@@ -105,11 +105,15 @@ for (const [locale, copy] of Object.entries(locales)) {
         );
       for (const href of hrefs) {
         expect(href, href).toMatch(
-          /^(#|\/|mailto:aaron20770@gmail\.com$|https:\/\/github\.com\/Aaron23486(\/[a-z]+)?$)/,
+          /^(#|\/|https:\/\/mail\.google\.com\/mail\/\?view=cm&fs=1&to=aaron20770%40gmail\.com&su=[^&]+$|https:\/\/github\.com\/Aaron23486(\/[a-z]+)?$)/,
         );
       }
       await expect(
-        page.locator('a[href="mailto:aaron20770@gmail.com"]').first(),
+        page
+          .locator(
+            'a[href^="https://mail.google.com/mail/?view=cm"][target="_blank"]',
+          )
+          .first(),
       ).toBeVisible();
       const githubRepos = hrefs.filter((href) =>
         /github\.com\/Aaron23486\/.+/.test(href),

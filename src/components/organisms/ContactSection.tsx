@@ -2,6 +2,8 @@ import { Mail } from "lucide-react";
 import { Button } from "@/components/atoms/Button";
 import { GithubIcon } from "@/components/atoms/GithubIcon";
 import { Eyebrow, GradientHeading, Lead } from "@/components/atoms/Typography";
+import { Link } from "@/components/atoms/Link";
+import { CopyEmail } from "@/components/molecules/CopyEmail";
 import { CvDownload } from "@/components/molecules/CvDownload";
 import type { Dictionary } from "@/i18n";
 import type { CvFile } from "@/types/content";
@@ -9,6 +11,8 @@ import { AuroraBackdrop, LightCurve, Mountains } from "./AuroraBackdrop";
 
 export interface ContactSectionProps {
   email: string;
+  /** Enlace de redacción en Gmail (no `mailto:`). */
+  emailHref: string;
   githubUrl: string;
   githubUsername: string;
   location: string;
@@ -19,6 +23,7 @@ export interface ContactSectionProps {
 
 export function ContactSection({
   email,
+  emailHref,
   githubUrl,
   githubUsername,
   location,
@@ -47,7 +52,7 @@ export function ContactSection({
             />
             <Lead className="max-w-xl">{contact.description}</Lead>
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <Button href={`mailto:${email}`} size="lg">
+              <Button href={emailHref} newTabHint={newTabHint} size="lg">
                 <Mail aria-hidden="true" className="size-5" />
                 {contact.emailLabel}
               </Button>
@@ -64,13 +69,19 @@ export function ContactSection({
             <dl className="grid gap-1 text-sm">
               <div className="flex flex-wrap gap-x-2">
                 <dt className="text-ink-muted">{contact.emailTerm}</dt>
-                <dd>
-                  <a
-                    href={`mailto:${email}`}
+                <dd className="flex flex-wrap items-center gap-x-1">
+                  <Link
+                    href={emailHref}
+                    newTabHint={newTabHint}
                     className="text-mist-white break-all underline-offset-4 hover:underline"
                   >
                     {email}
-                  </a>
+                  </Link>
+                  <CopyEmail
+                    email={email}
+                    label={contact.copyEmail}
+                    copiedLabel={contact.emailCopied}
+                  />
                 </dd>
               </div>
               <div className="flex flex-wrap gap-x-2">

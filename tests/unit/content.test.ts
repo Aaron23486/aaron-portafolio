@@ -9,12 +9,9 @@ import { getDictionary } from "@/i18n";
 import { locales } from "@/i18n/config";
 import en from "@/i18n/dictionaries/en";
 import es from "@/i18n/dictionaries/es";
+import { gmailComposeUrl } from "@/lib/contact";
 import { screenshotWidths } from "@/lib/images";
-import {
-  isMailto,
-  isOwnRepositoryUrl,
-  validateProjects,
-} from "@/lib/validation";
+import { isOwnRepositoryUrl, validateProjects } from "@/lib/validation";
 
 /** Rutas de claves de un objeto, incluidos los índices de arreglos. */
 function keyPaths(value: unknown, prefix = ""): string[] {
@@ -113,8 +110,14 @@ describe("catálogo de proyectos", () => {
 });
 
 describe("contacto y datos sensibles", () => {
-  it("el correo es un mailto válido", () => {
-    expect(isMailto(`mailto:${siteConfig.email}`)).toBe(true);
+  it("el correo abre la redacción de Gmail con destinatario y asunto", () => {
+    const url = new URL(
+      gmailComposeUrl(siteConfig.email, es.contact.emailSubject),
+    );
+    expect(url.origin + url.pathname).toBe("https://mail.google.com/mail/");
+    expect(url.searchParams.get("view")).toBe("cm");
+    expect(url.searchParams.get("to")).toBe("aaron20770@gmail.com");
+    expect(url.searchParams.get("su")).toBe("Contacto desde tu portafolio");
     expect(siteConfig.email).toBe("aaron20770@gmail.com");
   });
 
