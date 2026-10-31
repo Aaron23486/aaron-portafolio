@@ -53,7 +53,7 @@ src/
 public/
 ├── projects/<repo>/       # optimized WebP screenshots (800 and 1600 px)
 ├── og/                    # Open Graph images per language
-└── cv/                    # résumé PDFs (not versioned, see below)
+└── cv/                    # résumé PDFs (ES/EN)
 ```
 
 - **Presentation is decoupled from data.** Pages resolve the dictionary, catalog and available CVs, and the template only distributes them. Components receive typed props and never import content directly.
@@ -116,14 +116,14 @@ To use a different screenshot, change its source in `scripts/optimize-images.mjs
 
 ### Update the résumé
 
-Place the files at:
+Replace the files, keeping the same names:
 
 ```text
 public/cv/aaron-gutierrez-es.pdf
 public/cv/aaron-gutierrez-en.pdf
 ```
 
-The PDFs are listed in `.gitignore` until a public version is approved, so they are not published by accident. To publish them, remove the `/public/cv/*.pdf` line from `.gitignore` and commit the files. Without them the site builds normally and simply hides the download buttons.
+Commit and push them; Vercel redeploys automatically. If a PDF is missing, the site still builds and simply hides its download button.
 
 ### Change contact details or texts
 
